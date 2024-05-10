@@ -6,22 +6,19 @@ from scapy.all import *
 
 def print_logo():
     print("""
-       _       ___ _______    ________         
-      | |     / (_) ____(_)  / ____/ /__  _  __
-      | | /| / / / /_  / /  / /_  / / _ \| |/_/
-      | |/ |/ / / __/ / /  / __/ / /  __/>  <  
-      |__/|__/_/_/   /_/  /_/   /_/\___/_/|_|  
+ _       ___ _______    ________         
+| |     / (_) ____(_)  / ____/ /__  _  __
+| | /| / / / /_  / /  / /_  / / _ \| |/_/
+| |/ |/ / / __/ / /  / __/ / /  __/>  <  
+|__/|__/_/_/   /_/  /_/   /_/\___/_/|_|  
                                          
-Welcome to WiFiFlex - Your Ultimate Wi-Fi Security Testing Tool!
-                       By Leo Ryan
-              All Social Network Username (LeoRyanUS)  
-                     Email:leoryanus@gmail.com                                          
+Welcome to WiFiFlex - Your Ultimate Wi-Fi Security Testing Tool!\n
 """)
 
 def scan_wifi_networks():
     try:
         print("Scanning for Wi-Fi networks...")
-        subprocess.run(["wifiscan", "--all"])
+        subprocess.run(["airodump-ng", "wlan0"])
     except subprocess.CalledProcessError as e:
         print("Error during scanning:", e)
 
